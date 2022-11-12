@@ -16,8 +16,7 @@ function convertPokemonToLi(pokemon) {
                     ${pokemon.types.map((type) => `<li class="type ${type}">${type}</li>`).join('')}
                 </ol>
 
-                <img src="${pokemon.photo}"
-                     alt="${pokemon.name}">
+                <img id="${pokemon.name}" src="${pokemon.photo}" alt="${pokemon.name}" onclick="showSelectedPokemon(this)">
             </div>
         </li>
     `
@@ -33,6 +32,7 @@ function loadPokemonItens(offset, limit) {
 loadPokemonItens(offset, limit)
 
 loadMoreButton.addEventListener('click', () => {
+
     offset += limit
     const qtdRecordsWithNexPage = offset + limit
 
@@ -40,8 +40,14 @@ loadMoreButton.addEventListener('click', () => {
         const newLimit = maxRecords - offset
         loadPokemonItens(offset, newLimit)
 
-        loadMoreButton.parentElement.removeChild(loadMoreButton)
+        loadMoreButton.parentElement.removeChild(loadMoreButton)      
     } else {
         loadPokemonItens(offset, limit)
     }
 })
+
+function showSelectedPokemon(img) {
+    const pokeName = img.id
+    location.href = `/card.html?pokemon=${pokeName}`;
+}
+
