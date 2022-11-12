@@ -15,4 +15,5 @@ como, listar os Pokemons e seus detalhes e características.
 *   CSS3
 *   JavaScript 
 *   NodeJS
+*   Apexcharts
 
