@@ -15,8 +15,9 @@ function convertPokemonToLi(pokemon) {
                 <ol class="types">
                     ${pokemon.types.map((type) => `<li class="type ${type}">${type}</li>`).join('')}
                 </ol>
-
-                <img id="${pokemon.name}" src="${pokemon.photo}" alt="${pokemon.name}" onclick="showSelectedPokemon(this)">
+                <a href="/card.html?pokemon=${pokemon.name}" title="Ver detalhes" alt="Ver detalhes">
+                    <img id="${pokemon.name}" src="${pokemon.photo}" alt="${pokemon.name}">
+                </a>
             </div>
         </li>
     `
@@ -45,9 +46,4 @@ loadMoreButton.addEventListener('click', () => {
         loadPokemonItens(offset, limit)
     }
 })
-
-function showSelectedPokemon(img) {
-    const pokeName = img.id
-    location.href = `/card.html?pokemon=${pokeName}`;
-}
 

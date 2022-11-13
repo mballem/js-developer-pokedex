@@ -19,8 +19,10 @@ function convertToCardTop(pokemon) {
     const number = pokemon.number.toString().padStart(3, '0')
     return ` 
         <div class="top-grid-container ${pokemon.type}">
-            <div class="top-grid-item" onclick="history.back()">
-                <span class="arrow">&#8592;</span>
+            <div class="top-grid-item">
+                <a class="arrow" href="/index.html" title="Voltar">
+                    <span >&#8592;</span>
+                </a>                        
             </div> 
             <div class="top-grid-item">
                 <span class="title">Pokedex</span>
